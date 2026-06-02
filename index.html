@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nichvs Tech — Holding de Tecnologia Cultural</title>
+<meta name="description" content="Nichvs Tech é uma holding de tecnologia cultural brasileira. Automatizamos fluxos culturais com inteligência artificial.">
+<meta name="author" content="Luciano Kichalowski">
+<meta property="og:title" content="Nichvs Tech — Holding de Tecnologia Cultural">
+<meta property="og:description" content="Automatizamos fluxos culturais com inteligência artificial. Santa Catarina, Brasil.">
+<meta property="og:url" content="https://nichvs.tech">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:       #120808;
+  --bg2:      #1C0E0E;
+  --bg3:      #2A1414;
+  --orange:   #E76F51;
+  --coral:    #F94144;
+  --magenta:  #D62828;
+  --purple:   #6A0572;
+  --gold:     #FFD23F;
+  --sand:     #F4E1D2;
+  --sand2:    rgba(244,225,210,0.6);
+  --sand3:    rgba(244,225,210,0.3);
+  --border:   rgba(231,111,81,0.15);
+  --border2:  rgba(244,225,210,0.07);
+}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--sand);
+  font-family:'Barlow',sans-serif;
+  font-weight:400;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-thumb{background:rgba(231,111,81,0.3);border-radius:2px;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(18,8,8,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 3rem;
+}
+.nav-brand{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+.nav-logo-wrap{animation:neon-pulse 3s ease-in-out infinite;}
+@keyframes neon-pulse{
+  0%,100%{filter:drop-shadow(0 0 4px rgba(231,111,81,0.5));}
+  50%{filter:drop-shadow(0 0 10px rgba(231,111,81,0.9)) drop-shadow(0 0 20px rgba(255,210,63,0.4));}
+}
+.nav-wordmark{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1.1rem;font-weight:900;
+  letter-spacing:0.1em;text-transform:uppercase;
+  background:linear-gradient(135deg,#FFD23F,#E76F51);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.nav-sub{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.45rem;color:var(--sand3);
+  letter-spacing:0.2em;text-transform:uppercase;margin-top:2px;
+}
+.nav-links{display:flex;gap:2rem;}
+.nav-links a{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.65rem;color:var(--sand3);
+  text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--orange);}
+.nav-cta{
+  font-family:'Barlow',sans-serif;font-weight:600;font-size:0.78rem;
+  letter-spacing:0.04em;text-transform:uppercase;
+  padding:0.5rem 1.2rem;
+  background:linear-gradient(135deg,var(--orange),var(--coral));
+  color:#fff;border:none;border-radius:4px;cursor:pointer;
+  text-decoration:none;transition:all 0.2s;
+  box-shadow:0 4px 16px rgba(231,111,81,0.3);
+}
+.nav-cta:hover{filter:brightness(1.1);transform:translateY(-1px);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:8rem 3rem 5rem;
+  position:relative;overflow:hidden;
+}
+.hero-orb{
+  position:absolute;top:-100px;right:-100px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(231,111,81,0.12) 0%,transparent 70%);
+  pointer-events:none;animation:orb-breathe 5s ease-in-out infinite;
+}
+.hero-orb2{
+  position:absolute;bottom:-200px;left:-100px;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(106,5,114,0.1) 0%,transparent 70%);
+  pointer-events:none;animation:orb-breathe 7s ease-in-out infinite reverse;
+}
+@keyframes orb-breathe{0%,100%{opacity:0.6;}50%{opacity:1;}}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1;}
+.hero-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:0.6rem;
+  color:var(--orange);letter-spacing:0.18em;text-transform:uppercase;
+  display:flex;align-items:center;gap:10px;margin-bottom:1.5rem;
+}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--orange);}
+.hero-h1{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(3rem,6vw,5.5rem);
+  font-weight:900;line-height:0.95;
+  letter-spacing:0.02em;text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+.hero-h1 span{
+  background:linear-gradient(135deg,var(--gold),var(--orange),var(--coral));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  display:block;
+}
+.hero-sub{
+  font-size:1rem;color:var(--sand2);line-height:1.8;
+  margin-bottom:2.5rem;max-width:480px;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{
+  padding:0.85rem 1.8rem;
+  background:linear-gradient(135deg,var(--orange),var(--coral));
+  border:none;border-radius:4px;color:#fff;
+  font-family:'Barlow',sans-serif;font-weight:700;font-size:0.85rem;
+  letter-spacing:0.04em;text-transform:uppercase;
+  cursor:pointer;text-decoration:none;display:inline-block;
+  transition:all 0.2s;box-shadow:0 4px 20px rgba(231,111,81,0.35);
+}
+.btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px);}
+.btn-ghost{
+  padding:0.85rem 1.8rem;
+  background:transparent;border:1px solid rgba(244,225,210,0.2);
+  border-radius:4px;color:var(--sand2);
+  font-family:'Barlow',sans-serif;font-size:0.85rem;
+  letter-spacing:0.04em;text-transform:uppercase;
+  cursor:pointer;text-decoration:none;display:inline-block;
+  transition:all 0.2s;
+}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange);}
+
+/* ── Hero visual — pyramid ── */
+.hero-visual{display:flex;justify-content:center;align-items:center;}
+.pyramid-container{position:relative;width:320px;height:320px;}
+.pyramid-svg{
+  filter:drop-shadow(0 0 30px rgba(231,111,81,0.4));
+  animation:pyramid-float 4s ease-in-out infinite;
+}
+@keyframes pyramid-float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-12px);}
+}
+.pyramid-ring{
+  position:absolute;border-radius:50%;
+  border:1px solid;animation:ring-pulse 3s ease-in-out infinite;
+}
+.ring1{width:260px;height:260px;top:30px;left:30px;border-color:rgba(231,111,81,0.2);}
+.ring2{width:300px;height:300px;top:10px;left:10px;border-color:rgba(231,111,81,0.1);animation-delay:0.5s;}
+.ring3{width:320px;height:320px;top:0;left:0;border-color:rgba(231,111,81,0.05);animation-delay:1s;}
+@keyframes ring-pulse{
+  0%,100%{opacity:0.4;transform:scale(1);}
+  50%{opacity:0.8;transform:scale(1.03);}
+}
+
+/* ── METRICS BAND ── */
+.metrics-band{
+  background:var(--bg2);
+  border-top:1px solid var(--border2);
+  border-bottom:1px solid var(--border2);
+  padding:2.5rem 3rem;
+}
+.metrics-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;
+}
+.metric{text-align:center;}
+.metric-val{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:2.8rem;font-weight:900;
+  color:var(--gold);line-height:1;margin-bottom:0.3rem;
+  text-shadow:0 0 20px rgba(255,210,63,0.3);
+}
+.metric-lbl{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.58rem;color:var(--sand3);
+  letter-spacing:0.1em;text-transform:uppercase;line-height:1.5;
+}
+
+/* ── SECTION ── */
+section{padding:6rem 3rem;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:0.58rem;
+  color:var(--orange);letter-spacing:0.18em;text-transform:uppercase;
+  display:flex;align-items:center;gap:10px;margin-bottom:1rem;
+}
+.section-eyebrow::before{content:attr(data-n);color:var(--sand3);}
+.section-h2{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(2rem,4vw,3.2rem);font-weight:900;
+  text-transform:uppercase;letter-spacing:0.02em;line-height:1;
+  margin-bottom:3rem;
+}
+.section-h2 em{
+  font-style:italic;
+  background:linear-gradient(135deg,var(--orange),var(--coral));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+
+/* ── PRODUCTS ── */
+.products-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.product-card{
+  background:var(--bg2);
+  border:1px solid var(--border2);
+  border-radius:6px;padding:2rem;
+  position:relative;overflow:hidden;
+  transition:border-color 0.2s,transform 0.2s;
+}
+.product-card:hover{border-color:var(--border);transform:translateY(-2px);}
+.product-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+}
+.product-card.p1::before{background:linear-gradient(90deg,var(--orange),var(--coral));}
+.product-card.p2::before{background:linear-gradient(90deg,var(--coral),var(--purple));}
+.product-card.p3::before{background:linear-gradient(90deg,var(--purple),var(--magenta));}
+.product-card.p4::before{background:linear-gradient(90deg,var(--magenta),var(--orange));opacity:0.4;}
+.product-status{
+  font-family:'JetBrains Mono',monospace;font-size:0.52rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.2rem 0.55rem;border-radius:2px;
+  display:inline-block;margin-bottom:1rem;
+}
+.status-live{background:rgba(42,157,92,0.15);color:#2A9D5C;border:1px solid rgba(42,157,92,0.3);}
+.status-road{background:rgba(244,225,210,0.05);color:var(--sand3);border:1px solid var(--border2);}
+.product-icon{font-size:2rem;margin-bottom:0.8rem;display:block;}
+.product-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1.5rem;font-weight:900;
+  text-transform:uppercase;letter-spacing:0.04em;
+  margin-bottom:0.5rem;
+}
+.product-desc{font-size:0.85rem;color:var(--sand2);line-height:1.7;}
+.product-link{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:1.2rem;
+  font-family:'JetBrains Mono',monospace;font-size:0.6rem;
+  color:var(--orange);text-decoration:none;
+  letter-spacing:0.08em;text-transform:uppercase;
+  transition:gap 0.2s;
+}
+.product-link:hover{gap:10px;}
+
+/* ── NUMBERS ── */
+.numbers-section{background:var(--bg2);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);}
+.numbers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border2);}
+.number-item{
+  background:var(--bg2);padding:2.5rem 2rem;
+  border-bottom:none;
+}
+.number-val{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:3.5rem;font-weight:900;
+  line-height:1;margin-bottom:0.4rem;
+  background:linear-gradient(135deg,var(--gold),var(--orange));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.number-lbl{font-size:0.85rem;color:var(--sand2);line-height:1.5;}
+.number-sub{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.55rem;color:var(--sand3);
+  letter-spacing:0.1em;margin-top:0.5rem;
+}
+
+/* ── STACK ── */
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;}
+.stack-item{
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:4px;padding:1.2rem;
+  transition:border-color 0.2s;
+}
+.stack-item:hover{border-color:var(--border);}
+.stack-badge{
+  font-family:'JetBrains Mono',monospace;font-size:0.5rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.15rem 0.45rem;border-radius:2px;
+  display:inline-block;margin-bottom:0.7rem;
+}
+.badge-orange{background:rgba(231,111,81,0.15);color:var(--orange);border:1px solid rgba(231,111,81,0.3);}
+.badge-green{background:rgba(42,157,92,0.12);color:#2A9D5C;border:1px solid rgba(42,157,92,0.25);}
+.badge-blue{background:rgba(74,158,224,0.12);color:#4A9EE0;border:1px solid rgba(74,158,224,0.25);}
+.badge-purple{background:rgba(106,5,114,0.15);color:#9B35A8;border:1px solid rgba(106,5,114,0.3);}
+.stack-name{font-family:'Barlow',sans-serif;font-size:0.85rem;font-weight:600;color:var(--sand);margin-bottom:0.2rem;}
+.stack-desc{font-family:'JetBrains Mono',monospace;font-size:0.55rem;color:var(--sand3);}
+.stack-cost{
+  font-family:'JetBrains Mono',monospace;font-size:0.6rem;
+  color:#2A9D5C;margin-top:0.5rem;font-weight:500;
+}
+
+/* ── VALUATION ── */
+.val-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+.val-card{
+  background:var(--bg2);border:1px solid var(--border2);
+  border-radius:6px;padding:2rem;
+}
+.val-card.highlight{
+  background:rgba(231,111,81,0.06);
+  border-color:rgba(231,111,81,0.3);
+}
+.val-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:3rem;font-weight:900;
+  color:var(--gold);line-height:1;margin-bottom:0.4rem;
+}
+.val-lbl{font-size:0.85rem;color:var(--sand2);}
+.val-sub{font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--sand3);margin-top:0.4rem;}
+
+/* ── CONTACT ── */
+.contact-section{background:var(--bg2);border-top:1px solid var(--border2);}
+.contact-inner{
+  max-width:700px;margin:0 auto;
+  text-align:center;padding:5rem 3rem;
+}
+.contact-h2{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(2.2rem,5vw,4rem);font-weight:900;
+  text-transform:uppercase;line-height:1;margin-bottom:1rem;
+}
+.contact-h2 em{
+  font-style:italic;
+  background:linear-gradient(135deg,var(--orange),var(--coral));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.contact-sub{font-size:0.95rem;color:var(--sand2);margin-bottom:2.5rem;line-height:1.8;}
+.contact-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:2rem;}
+.contact-link{
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  color:var(--sand3);text-decoration:none;
+  letter-spacing:0.1em;text-transform:uppercase;
+  transition:color 0.2s;
+}
+.contact-link:hover{color:var(--orange);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--bg);
+  border-top:1px solid var(--border2);
+  padding:1.5rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
+.footer-brand{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:0.9rem;font-weight:900;
+  letter-spacing:0.1em;
+  background:linear-gradient(135deg,var(--gold),var(--orange));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.footer-copy{
+  font-family:'JetBrains Mono',monospace;
+  font-size:0.52rem;color:var(--sand3);letter-spacing:0.08em;
+}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{
+  font-family:'JetBrains Mono',monospace;font-size:0.52rem;
+  color:var(--sand3);text-decoration:none;
+  letter-spacing:0.06em;text-transform:uppercase;
+  transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--orange);}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hero{padding:6rem 1.5rem 3rem;}
+  .hero-inner{grid-template-columns:1fr;gap:3rem;}
+  .hero-visual{display:none;}
+  .metrics-inner{grid-template-columns:repeat(2,1fr);}
+  section{padding:4rem 1.5rem;}
+  .products-grid{grid-template-columns:1fr;}
+  .numbers-grid{grid-template-columns:1fr;}
+  .stack-grid{grid-template-columns:repeat(2,1fr);}
+  .val-grid{grid-template-columns:1fr;}
+  footer{padding:1.5rem;flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="/">
+    <div class="nav-logo-wrap">
+      <svg width="30" height="28" viewBox="0 0 32 32" fill="none">
+        <path d="M4 22 Q16 3 28 22" stroke="#FFD23F" stroke-width="1.2" fill="none" opacity="0.7"/>
+        <path d="M7 17 Q16 14 25 17" stroke="#FFD23F" stroke-width="0.7" opacity="0.4"/>
+        <path d="M5 22 Q16 19 27 22" stroke="#FFD23F" stroke-width="0.7" opacity="0.3"/>
+        <line x1="16" y1="3" x2="16" y2="22" stroke="#FFD23F" stroke-width="0.7" opacity="0.35"/>
+        <polygon points="2,28 30,28 25,24 7,24" fill="#6A0572"/>
+        <polygon points="5,24 27,24 22,20 10,20" fill="#D62828"/>
+        <polygon points="8,20 24,20 20,16 12,16" fill="#E76F51"/>
+        <polygon points="10,16 22,16 18.5,12 13.5,12" fill="#F4844A"/>
+        <polygon points="12.5,12 19.5,12 16,7" fill="#FFD23F"/>
+      </svg>
+    </div>
+    <div>
+      <div class="nav-wordmark">NICHVS</div>
+      <div class="nav-sub">TECH</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#produtos">Produtos</a>
+    <a href="#numeros">Números</a>
+    <a href="#stack">Stack</a>
+    <a href="#investidores">Investidores</a>
+  </div>
+  <a href="https://culturaflow.com.br" class="nav-cta" target="_blank">Acessar Plataforma</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Holding de Tecnologia Cultural · SC, Brasil</p>
+      <h1 class="hero-h1">
+        Automatizamos
+        <span>fluxos culturais.</span>
+      </h1>
+      <p class="hero-sub">A Nichvs Tech constrói software que elimina a burocracia entre o artista e a aprovação. Inteligência artificial aplicada ao ecossistema de fomento cultural brasileiro.</p>
+      <div class="hero-actions">
+        <a href="https://culturaflow.com.br" class="btn-primary" target="_blank">Ver a plataforma</a>
+        <a href="#investidores" class="btn-ghost">Para investidores</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="pyramid-container">
+        <div class="pyramid-ring ring1"></div>
+        <div class="pyramid-ring ring2"></div>
+        <div class="pyramid-ring ring3"></div>
+        <svg class="pyramid-svg" width="320" height="320" viewBox="0 0 320 320" fill="none">
+          <path d="M40 220 Q160 30 280 220" stroke="#FFD23F" stroke-width="2" fill="none" opacity="0.6"/>
+          <path d="M70 170 Q160 140 250 170" stroke="#FFD23F" stroke-width="1.2" opacity="0.35"/>
+          <path d="M50 220 Q160 190 270 220" stroke="#FFD23F" stroke-width="1" opacity="0.25"/>
+          <line x1="160" y1="30" x2="160" y2="220" stroke="#FFD23F" stroke-width="1" opacity="0.3"/>
+          <!-- Layer 5 — base — purple -->
+          <polygon points="20,280 300,280 250,240 70,240" fill="#6A0572" opacity="0.9"/>
+          <!-- Layer 4 — magenta -->
+          <polygon points="50,240 270,240 220,200 100,200" fill="#D62828" opacity="0.9"/>
+          <!-- Layer 3 — orange -->
+          <polygon points="80,200 240,200 200,160 120,160" fill="#E76F51" opacity="0.9"/>
+          <!-- Layer 2 -->
+          <polygon points="100,160 220,160 188,120 132,120" fill="#F4844A" opacity="0.9"/>
+          <!-- Layer 1 — top — gold -->
+          <polygon points="125,120 195,120 160,70" fill="#FFD23F" opacity="0.95"/>
+          <!-- Glow lines -->
+          <polygon points="20,280 300,280 250,240 70,240" fill="none" stroke="#6A0572" stroke-width="1" opacity="0.5"/>
+          <polygon points="50,240 270,240 220,200 100,200" fill="none" stroke="#D62828" stroke-width="1" opacity="0.5"/>
+          <polygon points="80,200 240,200 200,160 120,160" fill="none" stroke="#E76F51" stroke-width="1.5" opacity="0.6"/>
+          <polygon points="100,160 220,160 188,120 132,120" fill="none" stroke="#F4844A" stroke-width="1" opacity="0.5"/>
+          <polygon points="125,120 195,120 160,70" fill="none" stroke="#FFD23F" stroke-width="1.5" opacity="0.8"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS BAND -->
+<div class="metrics-band">
+  <div class="metrics-inner">
+    <div class="metric">
+      <div class="metric-val">R$ 1,36B</div>
+      <div class="metric-lbl">Mercado endereçável<br>por ano no Brasil</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val">8</div>
+      <div class="metric-lbl">Módulos integrados<br>em produção</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val">92%+</div>
+      <div class="metric-lbl">Margem bruta<br>projetada</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val">R$0</div>
+      <div class="metric-lbl">Custo de infra<br>para começar</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUTOS -->
+<section id="produtos">
+  <div class="section-inner">
+    <p class="section-eyebrow" data-n="01">Portfólio de Produtos</p>
+    <h2 class="section-h2">Uma holding.<br><em>Múltiplos produtos.</em></h2>
+    <div class="products-grid">
+      <div class="product-card p1">
+        <span class="product-status status-live">✓ Live em produção</span>
+        <span class="product-icon">◎</span>
+        <div class="product-name">Plataforma Cultural</div>
+        <p class="product-desc">SaaS end-to-end para captação de editais culturais brasileiros. Radar com IA, geração de propostas, pipeline Kanban, estúdio visual, dossiê, orçamento e pitch deck bilíngue — tudo integrado em uma plataforma.</p>
+        <a href="https://culturaflow.com.br" class="product-link" target="_blank">culturaflow.com.br →</a>
+      </div>
+      <div class="product-card p2">
+        <span class="product-status status-road">Roadmap Nov/2026</span>
+        <span class="product-icon">🎵</span>
+        <div class="product-name">KFlowStudio</div>
+        <p class="product-desc">Plataforma especializada no mercado de K-pop brasileiro — grupos cover, fandoms produtores e artistas independentes do gênero. Mesmo stack da plataforma cultural, nova vertical.</p>
+        <a href="https://kflowstudio.com" class="product-link" target="_blank">kflowstudio.com →</a>
+      </div>
+      <div class="product-card p3">
+        <span class="product-status status-road">Roadmap 2027</span>
+        <span class="product-icon">🌎</span>
+        <div class="product-name">Expansão LATAM</div>
+        <p class="product-desc">Adaptação da plataforma cultural para os mercados de Argentina e Colômbia, com integração às fontes de fomento cultural locais e interface em espanhol.</p>
+      </div>
+      <div class="product-card p4">
+        <span class="product-status status-road">Conceito</span>
+        <span class="product-icon">◈</span>
+        <div class="product-name">Nichvs Studio</div>
+        <p class="product-desc">Portal criativo da holding — produtos artísticos, marca e universo cultural da Nichvs Tech. Identidade do ecossistema criativo que une as verticais.</p>
+        <a href="https://nichvs.studio" class="product-link" target="_blank">nichvs.studio →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NÚMEROS -->
+<section id="numeros" class="numbers-section">
+  <div class="section-inner">
+    <p class="section-eyebrow" data-n="02">Tração e Execução</p>
+    <h2 class="section-h2">Produto real.<br><em>Ativos verificáveis.</em></h2>
+    <div class="numbers-grid">
+      <div class="number-item">
+        <div class="number-val">7.100</div>
+        <div class="number-lbl">Linhas de código em produção — equivalente a um livro de 340 páginas de software proprietário.</div>
+        <div class="number-sub">React 18 · Python · Node.js · SQL</div>
+      </div>
+      <div class="number-item">
+        <div class="number-val">~270h</div>
+        <div class="number-lbl">Horas de trabalho especializado investidas — desenvolvimento, estratégia, design e documentação.</div>
+        <div class="number-sub">R$ 100–130/h equivalente de mercado</div>
+      </div>
+      <div class="number-item">
+        <div class="number-val">R$120k+</div>
+        <div class="number-lbl">Valor equivalente dos ativos tangíveis acumulados — código, identidade, documentação e domínios.</div>
+        <div class="number-sub">Verificável · sem projeções</div>
+      </div>
+      <div class="number-item">
+        <div class="number-val">5</div>
+        <div class="number-lbl">Domínios estratégicos registrados protegendo a marca em múltiplas frentes.</div>
+        <div class="number-sub">nichvs.tech · nichvs.com.br · nichvs.studio · culturaflow.com.br · kflowstudio.com</div>
+      </div>
+      <div class="number-item">
+        <div class="number-val">11</div>
+        <div class="number-lbl">Fontes de editais monitoradas automaticamente a cada 6 horas via GitHub Actions.</div>
+        <div class="number-sub">DOU · Funarte · ProAC · SESC · FCC-SC · e mais</div>
+      </div>
+      <div class="number-item">
+        <div class="number-val">R$5M–8M</div>
+        <div class="number-lbl">Valuation pre-money documentado com 4 metodologias independentes.</div>
+        <div class="number-sub">DCF · Múltiplo ARR · Scorecard · Comparáveis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="section-inner">
+    <p class="section-eyebrow" data-n="03">Stack Tecnológico</p>
+    <h2 class="section-h2">Infraestrutura robusta.<br><em>Custo operacional mínimo.</em></h2>
+    <div class="stack-grid">
+      <div class="stack-item">
+        <span class="stack-badge badge-orange">Frontend</span>
+        <div class="stack-name">React 18 + Vite</div>
+        <div class="stack-desc">GitHub Pages · CDN global</div>
+        <div class="stack-cost">R$ 0 / mês</div>
+      </div>
+      <div class="stack-item">
+        <span class="stack-badge badge-blue">API</span>
+        <div class="stack-name">Netlify Functions</div>
+        <div class="stack-desc">Serverless · Node.js · 125k req/mês</div>
+        <div class="stack-cost">R$ 0 / mês</div>
+      </div>
+      <div class="stack-item">
+        <span class="stack-badge badge-green">Banco</span>
+        <div class="stack-name">Supabase PostgreSQL</div>
+        <div class="stack-desc">Região São Paulo · Auth JWT</div>
+        <div class="stack-cost">R$ 0 / mês</div>
+      </div>
+      <div class="stack-item">
+        <span class="stack-badge badge-orange">Storage</span>
+        <div class="stack-name">Cloudinary CDN</div>
+        <div class="stack-desc">Assets 4K/8K · URLs assinadas 72h</div>
+        <div class="stack-cost">R$ 0 / mês</div>
+      </div>
+      <div class="stack-item">
+        <span class="stack-badge badge-purple">IA</span>
+        <div class="stack-name">Anthropic Claude</div>
+        <div class="stack-desc">Match · Proposta · Pitch Deck</div>
+        <div class="stack-cost">~R$ 0,05/proposta</div>
+      </div>
+      <div class="stack-item">
+        <span class="stack-badge badge-blue">CI/CD</span>
+        <div class="stack-name">GitHub Actions</div>
+        <div class="stack-desc">Deploy automático · Scraper 6h</div>
+        <div class="stack-cost">R$ 0 / mês</div>
+      </div>
+      <div class="stack-item">
+        <span class="stack-badge badge-orange">DNS</span>
+        <div class="stack-name">Cloudflare</div>
+        <div class="stack-desc">nichvs.tech · nichvs.studio · SSL</div>
+        <div class="stack-cost">R$ 0 / mês</div>
+      </div>
+      <div class="stack-item">
+        <span class="stack-badge badge-green">Total</span>
+        <div class="stack-name">Custo operacional</div>
+        <div class="stack-desc">Para os primeiros 100 clientes</div>
+        <div class="stack-cost">< R$ 100 / mês</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTIDORES -->
+<section id="investidores">
+  <div class="section-inner">
+    <p class="section-eyebrow" data-n="04">Para Investidores</p>
+    <h2 class="section-h2">Rodada seed.<br><em>Valuation documentado.</em></h2>
+    <div class="val-grid">
+      <div class="val-card highlight">
+        <div class="val-num">R$ 5M–8M</div>
+        <div class="val-lbl">Valuation pre-money — 4 metodologias ponderadas</div>
+        <div class="val-sub">DCF · Múltiplo ARR · Scorecard qualitativo · Comparáveis de mercado</div>
+      </div>
+      <div class="val-card highlight">
+        <div class="val-num">R$ 300k–500k</div>
+        <div class="val-lbl">Captação alvo — rodada seed</div>
+        <div class="val-sub">5–10% de participação · Runway de 18–24 meses</div>
+      </div>
+      <div class="val-card">
+        <div class="val-num">R$ 2,1M</div>
+        <div class="val-lbl">ARR projetado para 2027</div>
+        <div class="val-sub">+415% YoY · Margem bruta 92–95%</div>
+      </div>
+      <div class="val-card">
+        <div class="val-num">R$ 16M–28M</div>
+        <div class="val-lbl">Valuation projetado 2027</div>
+        <div class="val-sub">Cenário base — crescimento orgânico</div>
+      </div>
+    </div>
+    <div style="margin-top:2rem;text-align:center;">
+      <p style="font-size:0.85rem;color:var(--sand2);margin-bottom:1.5rem;">Documentação completa disponível sob NDA — dossiê para investidores, valuation detalhado, modelo financeiro e apresentação executiva.</p>
+      <a href="mailto:contato@nichvs.tech" class="btn-primary">Solicitar material de investimento</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section">
+  <div class="contact-inner">
+    <h2 class="contact-h2">Vamos construir<br><em>juntos.</em></h2>
+    <p class="contact-sub">A Nichvs Tech está aberta a conversas com investidores, parceiros estratégicos, clientes do mercado cultural e talentos que queiram fazer parte desse projeto.</p>
+    <a href="mailto:contato@nichvs.tech" class="btn-primary">contato@nichvs.tech</a>
+    <div class="contact-links">
+      <a href="https://culturaflow.com.br" class="contact-link" target="_blank">culturaflow.com.br</a>
+      <a href="https://nichvs.studio" class="contact-link" target="_blank">nichvs.studio</a>
+      <a href="https://nichvs.com.br" class="contact-link" target="_blank">nichvs.com.br</a>
+      <a href="https://github.com/nichvscultural" class="contact-link" target="_blank">github</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">NICHVS TECH</div>
+  <div class="footer-links">
+    <a href="#produtos">Produtos</a>
+    <a href="#numeros">Números</a>
+    <a href="#investidores">Investidores</a>
+    <a href="https://culturaflow.com.br" target="_blank">Plataforma</a>
+  </div>
+  <div class="footer-copy">© 2026 Nichvs Tech · CNPJ 28.954.962/0001-07 · Florianópolis, SC</div>
+</footer>
+
+</body>
+</html>
