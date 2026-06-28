@@ -110,6 +110,43 @@
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.net-line{stroke-dashoffset:0}html{scroll-behavior:auto}}
+  .telas{display:flex;flex-direction:column;gap:16px;margin-top:8px}
+  .dash{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;--c:var(--brand)}
+  .dash.cf{--c:var(--cultura)}.dash.st{--c:var(--brand)}
+  .dash-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+  .dash-bar .dot{width:9px;height:9px;border-radius:50%;background:var(--line)}
+  .dash-bar .dt{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-left:8px}
+  .dash-bar .dt b{color:var(--c)}
+  .dash-body{padding:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media(max-width:620px){.dash-body{grid-template-columns:repeat(2,1fr)}}
+  .metric{border:1px solid var(--line);border-radius:4px;padding:14px}
+  .metric .ml{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .metric .mv{font-weight:700;font-size:1.4rem;margin-top:6px;color:var(--c)}
+  .dash-foot{padding:11px 16px;border-top:1px solid var(--line);font-family:"Space Mono",monospace;font-size:10.5px;color:var(--muted)}
+  .spoiler{filter:blur(6px);cursor:pointer;transition:filter .18s,background .18s;background:rgba(86,207,225,.08);border-radius:2px;padding:0 3px;user-select:none}
+  .spoiler:hover{background:rgba(86,207,225,.15)}
+  .spoiler.revealed{filter:none;user-select:auto;background:transparent}
+  .spoiler-note{font-family:"Space Mono",monospace;font-size:11px;color:var(--brand);border:1px dashed var(--brand);padding:8px 12px;display:inline-flex;gap:8px;align-items:center;margin:4px 0 20px;border-radius:2px}
+  .op{padding:96px 0 40px;border-top:1px solid var(--line)}
+  .op h2{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:600;letter-spacing:-.01em;margin:6px 0 14px}
+  .op .lead{color:var(--muted);max-width:58ch;font-weight:300;margin-bottom:14px}
+  .method{border:1px solid var(--brand);border-radius:6px;background:linear-gradient(180deg,rgba(86,207,225,.07),transparent);padding:26px 28px;margin:18px 0 30px}
+  .method .mt{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:10px}
+  .method p{color:var(--text);font-weight:300;line-height:1.55}
+  .method p b{font-weight:600;color:var(--text)}
+  .fwchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .fwchip{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--brand);border:1px solid var(--brand);padding:6px 10px;border-radius:2px;opacity:.9}
+  .models{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px}
+  @media(max-width:760px){.models{grid-template-columns:1fr}}
+  .model{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:28px 26px;--c:var(--brand)}
+  .model.fin{--c:var(--cultura)}.model.oss{--c:var(--brand)}
+  .model::before{content:"";display:block;width:36px;height:3px;background:var(--c);margin-bottom:16px}
+  .model .mk{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin-bottom:8px}
+  .model h4{font-size:1.3rem;font-weight:700;margin-bottom:12px}
+  .model p{color:var(--muted);font-weight:300;font-size:.93rem;margin-bottom:16px}
+  .model .mrow{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:.86rem}
+  .model .mrow span{color:var(--muted);font-family:"Space Mono",monospace;font-size:11px;text-transform:uppercase}
+  .model .mrow b{color:var(--text);font-weight:600;text-align:right}
 </style>
 </head>
 <body>
@@ -143,6 +180,8 @@
     <a class="brand" href="#top" aria-label="NICHVS"><svg><use href="#logo"/></svg><span>NICHVS</span></a>
     <nav class="nav-links">
       <a href="#produtos">Produtos</a>
+      <a href="#operacao">Em operação</a>
+      <a href="#consultoria">Consultoria</a>
       <a href="#sobre">A empresa</a>
       <a class="nav-cta" href="mailto:contato@nichvs.tech">Contato</a>
     </nav>
@@ -218,6 +257,74 @@
     </div>
   </section>
 
+  <section class="op" id="operacao">
+    <div class="wrap">
+      <div class="sec-label reveal">Em operação · Telas &amp; Dashboards</div>
+      <h2 class="reveal">Os produtos rodando.</h2>
+      <p class="lead reveal">Formatação e estrutura expostas; os dados de negócio ficam em spoiler.</p>
+      <div class="spoiler-note reveal">⌐ Dados sensíveis borrados · clique em qualquer valor para revelar</div>
+      <div class="telas reveal">
+        <div class="dash cf"><div class="dash-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dt"><b>CulturaFlow · Editais · Visão de Mercado</b></span></div>
+          <div class="dash-body">
+            <div class="metric"><div class="ml">Editais</div><div class="mv"><span class="spoiler">46</span></div></div>
+            <div class="metric"><div class="ml">Valor mapeado</div><div class="mv"><span class="spoiler">R$ xx M</span></div></div>
+            <div class="metric"><div class="ml">SLA</div><div class="mv">COMPLIANT</div></div>
+            <div class="metric"><div class="ml">Fontes</div><div class="mv">2</div></div>
+          </div>
+          <div class="dash-foot">Último scrape (async) · 2 workers paralelos · dados extraídos de PNCP/portais</div>
+        </div>
+        <div class="dash cf"><div class="dash-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dt"><b>CulturaFlow · Monitor de Processos (BullMQ)</b></span></div>
+          <div class="dash-body">
+            <div class="metric"><div class="ml">Jobs ativos</div><div class="mv"><span class="spoiler">15</span></div></div>
+            <div class="metric"><div class="ml">Aguardando</div><div class="mv"><span class="spoiler">32</span></div></div>
+            <div class="metric"><div class="ml">Workers</div><div class="mv">3</div></div>
+            <div class="metric"><div class="ml">Falhas (DLQ)</div><div class="mv"><span class="spoiler">2</span></div></div>
+          </div>
+          <div class="dash-foot">Workers Bun · exponential backoff · deadletter DLQ monitorado · retry automático</div>
+        </div>
+        <div class="dash st"><div class="dash-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dt"><b>NICHVS STUDIO · Orchestration Monitor</b></span></div>
+          <div class="dash-body">
+            <div class="metric"><div class="ml">Eventos/s</div><div class="mv"><span class="spoiler">xxx</span></div></div>
+            <div class="metric"><div class="ml">Filas</div><div class="mv">4</div></div>
+            <div class="metric"><div class="ml">Latência p99</div><div class="mv"><span class="spoiler">xx ms</span></div></div>
+            <div class="metric"><div class="ml">Uptime</div><div class="mv">99.9%</div></div>
+          </div>
+          <div class="dash-foot">Roteamento assíncrono · filas isoladas · RBAC + auditoria imutável</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="op" id="consultoria" style="padding-bottom:40px">
+    <div class="wrap">
+      <div class="sec-label reveal">Serviço consultivo</div>
+      <h2 class="reveal">Modelagem da jornada.</h2>
+      <p class="lead reveal">Desenhamos, com método, a jornada da sua organização da operação atual até a <b style="color:var(--text)">Inteligência Infraestrutural</b> — onde a complexidade fica invisível e a execução, instantânea.</p>
+      <div class="method reveal">
+        <div class="mt">Compromisso de método</div>
+        <p>Todo o processo de consultoria é conduzido sob as <b>melhores práticas, metodologias e frameworks globais</b> de governança, segurança, dados, engenharia ágil, DevOps e IA — adaptados à realidade regulatória brasileira.</p>
+        <div class="fwchips"><span class="fwchip">COBIT</span><span class="fwchip">ISO 27001</span><span class="fwchip">NIST CSF</span><span class="fwchip">DORA</span><span class="fwchip">DAMA</span><span class="fwchip">MLOps</span><span class="fwchip">DevSecOps</span><span class="fwchip">SAFe</span><span class="fwchip">Scrum/Kanban</span><span class="fwchip">Responsible AI</span><span class="fwchip">Open Finance</span></div>
+      </div>
+      <div class="sec-label reveal">Dois modelos consultivos de referência</div>
+      <div class="models reveal">
+        <div class="model fin"><div class="mk">Modelo A · Financeiro</div><h4>Ecossistema Red</h4>
+          <p>Correspondente bancário, Open Finance e bancarização. Esteira de consignado/portabilidade, melhor oferta e radar regulatório.</p>
+          <div class="mrow"><span>Domínio</span><b>Serviços financeiros</b></div>
+          <div class="mrow"><span>Módulos</span><b>Scrape · Doc · Match · Net</b></div>
+          <div class="mrow"><span>Ticket / metas</span><b><span class="spoiler">dados em spoiler</span></b></div>
+          <div class="mrow"><span>Regulatório</span><b>BACEN · SUSEP · LGPD</b></div>
+        </div>
+        <div class="model oss"><div class="mk">Modelo B · Terceiro Setor</div><h4>Instituto IDEAS</h4>
+          <p>Organização social de saúde (OSS). Prestação de contas auditável, editais &amp; orçamento, finanças &amp; pessoas multi-contrato.</p>
+          <div class="mrow"><span>Domínio</span><b>Saúde · OSS</b></div>
+          <div class="mrow"><span>Núcleos</span><b>Contas · Editais · Finanças</b></div>
+          <div class="mrow"><span>Volumes / contratos</span><b><span class="spoiler">dados em spoiler</span></b></div>
+          <div class="mrow"><span>Regulatório</span><b>TCE/TCU · MROSC · ONA</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="about" id="sobre">
     <div class="wrap">
       <div class="about-box reveal">
@@ -266,6 +373,7 @@
     var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){entries[i].target.classList.add("in");io.unobserve(entries[i].target);}}},{threshold:0.12,rootMargin:"0px 0px -40px 0px"});
     for(var j=0;j<items.length;j++){io.observe(items[j]);}
   }else{for(var k=0;k<items.length;k++){items[k].classList.add("in");}}
+  var sp=document.querySelectorAll(".spoiler");for(var q=0;q<sp.length;q++){sp[q].addEventListener("click",function(){this.classList.toggle("revealed");});}
 })();
 </script>
 </body>
