@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Área do Cliente · NICHVS Tecnologia</title>
+<meta name="description" content="Portal de acesso restrito do cliente NICHVS Tecnologia — plano de evolução tecnológica, proposta comercial, anexos técnicos e modelo de investimento." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="nichvs-tech.css"/>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 200 200">
+    <g>
+      <path class="net-line" d="M100 22 L148 40 L172 92 L164 144 L132 172 L88 178 L44 158 L24 114 L34 64 L66 30 Z"/>
+      <path class="net-line" d="M100 22 L128 104 M66 30 L72 96 M72 96 L96 140 M128 104 L96 140 M24 114 L72 96 M172 92 L128 104 M132 172 L96 140"/>
+    </g>
+    <g>
+      <circle class="net-node pulse" cx="100" cy="22" r="5"/>
+      <circle class="net-node pulse" cx="148" cy="40" r="5.5" style="animation-delay:.3s"/>
+      <circle class="net-node pulse" cx="172" cy="92" r="5" style="animation-delay:.6s"/>
+      <circle class="net-node pulse" cx="164" cy="144" r="5.5" style="animation-delay:.2s"/>
+      <circle class="net-node pulse" cx="132" cy="172" r="5" style="animation-delay:.9s"/>
+      <circle class="net-node pulse" cx="88" cy="178" r="5.5" style="animation-delay:.5s"/>
+      <circle class="net-node pulse" cx="44" cy="158" r="5" style="animation-delay:1.1s"/>
+      <circle class="net-node pulse" cx="24" cy="114" r="5.5" style="animation-delay:.4s"/>
+      <circle class="net-node pulse" cx="34" cy="64" r="5" style="animation-delay:.8s"/>
+      <circle class="net-node pulse" cx="66" cy="30" r="5.5" style="animation-delay:1.3s"/>
+      <circle class="net-node pulse" cx="72" cy="96" r="4" style="animation-delay:.7s"/>
+      <circle class="net-node pulse" cx="128" cy="104" r="4" style="animation-delay:1s"/>
+      <circle class="net-node pulse" cx="96" cy="140" r="4" style="animation-delay:.15s"/>
+    </g>
+    <path class="net-v" d="M64 60 L100 132 L136 60 L118 60 L100 96 L82 60 Z"/>
+  </symbol>
+</svg>
+
+<header id="head">
+  <div class="wrap nav">
+    <a class="brand" href="nichvs-tech.html#top" aria-label="NICHVS"><svg><use href="#logo"/></svg><span>NICHVS</span></a>
+    <nav class="nav-links">
+      <a href="nichvs-tech.html#produtos">Produtos</a>
+      <a href="nichvs-tech.html#consultoria">Consultoria</a>
+      <a href="nichvs-tech.html#sobre">A empresa</a>
+      <a href="cliente.html" style="color:var(--brand)">Área do Cliente</a>
+      <a class="nav-cta" href="mailto:contato@nichvs.tech">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===== GATE (terminal de acesso) ===== -->
+<section id="gate-section" style="padding:150px 0 70px">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;display:flex">Acesso Restrito · Portal de Clientes</div>
+    <h1 style="text-align:center;font-size:clamp(1.9rem,4.6vw,3rem);margin-top:18px">Acesso à sua operação.</h1>
+    <p class="hero-tag" style="text-align:center;margin:18px auto 0;max-width:54ch">Cada cliente Nichvs tem um ponto de acesso dedicado ao material do próprio projeto — plano, proposta, anexos técnicos e modelo de investimento. Selecione a conta e informe a chave de acesso.</p>
+
+    <div class="gate-wrap" style="margin-top:48px">
+      <div class="dash" id="gate-dash">
+        <div class="dash-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dt"><b>ACCESS_TERMINAL</b> · nichvs.tech/cliente</span></div>
+        <div class="gate-body">
+          <div class="gate-field">
+            <label for="clientSelect">CLIENT_ID</label>
+            <select id="clientSelect">
+              <option value="hel">Hospital Evangélico de Londrina</option>
+            </select>
+          </div>
+          <div class="gate-field">
+            <label for="passKey">ACCESS_KEY</label>
+            <input type="password" id="passKey" placeholder="••••••••••••••" autocomplete="off"/>
+          </div>
+          <button class="btn btn-primary gate-submit" id="gateSubmit">Autenticar <span>&rarr;</span></button>
+          <div class="gate-msg idle" id="gateMsg"><span class="blip"></span><span id="gateMsgText">Aguardando credenciais.</span></div>
+        </div>
+      </div>
+      <p class="gate-note">Acesso fornecido pela equipe Nichvs ao responsável pelo projeto. <b>Esqueceu a chave?</b> Solicite reenvio em <a href="mailto:contato@nichvs.tech" style="color:var(--brand)">contato@nichvs.tech</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAINEL AUTENTICADO ===== -->
+<section id="panel-section" style="display:none;padding:150px 0 90px">
+  <div class="wrap">
+
+    <div class="sess-bar">
+      <div class="sl"><span class="sess-dot"></span>Sessão ativa · <b id="sessClientName">—</b></div>
+      <button class="logout-btn" id="logoutBtn">Sair</button>
+    </div>
+
+    <div class="cdash-head">
+      <div>
+        <div class="ck">Painel do Cliente</div>
+        <h2 id="panelClientName">—</h2>
+        <div class="csub">Vita · Evolução Tecnológica de Ponta a Ponta · powered by NICHVS STUDIO</div>
+      </div>
+      <span class="statuschip">Projeto ativo · Fase 0</span>
+    </div>
+
+    <div class="sec-label">Linha do Tempo</div>
+    <div class="ptrack" id="phaseTrack">
+      <div class="pstep active"><div class="pn">FASE 0</div><div class="pl">Diagnóstico</div></div>
+      <div class="pstep"><div class="pn">FASE 1</div><div class="pl">VitaDoc</div></div>
+      <div class="pstep"><div class="pn">FASE 2</div><div class="pl">VitaFlow</div></div>
+      <div class="pstep"><div class="pn">FASE 3</div><div class="pl">VitaMatch</div></div>
+      <div class="pstep"><div class="pn">FASE 4</div><div class="pl">VitaScrape</div></div>
+      <div class="pstep"><div class="pn">FASE 5</div><div class="pl">VitaMed</div></div>
+      <div class="pstep"><div class="pn">FASE 6</div><div class="pl">VitaCare</div></div>
+    </div>
+
+    <div class="sec-label">Indicadores · Núcleo Operacional (modelado)</div>
+    <div class="kpi-grid">
+      <div class="kpi" style="--c:var(--cultura)"><div class="kl">Investimento 36m</div><div class="kv">R$ 1,76 mi</div></div>
+      <div class="kpi" style="--c:var(--cultura)"><div class="kl">Benefício / mês</div><div class="kv">R$ 270,5 mil</div></div>
+      <div class="kpi" style="--c:var(--brand)"><div class="kl">Payback</div><div class="kv">7 meses</div></div>
+      <div class="kpi" style="--c:var(--green)"><div class="kl">ROI 36m</div><div class="kv">3,66×</div></div>
+    </div>
+
+    <div class="sec-label">Documentos do Projeto</div>
+    <div class="doc-grid" id="docGrid">
+
+      <div class="doccard" style="--c:var(--brand)">
+        <div class="dc-top"><h4>Plano de Evolução Tecnológica 2.0</h4><span class="filetag">HTML</span></div>
+        <p>Documento operacional completo: arquitetura dos 6 módulos Vita, roadmap faseado, artefatos (RACI, ISO 27001, DR/HA), conformidade e modelo de investimento com dashboard analítico.</p>
+        <div class="dc-actions"><a class="btn btn-sm btn-primary" href="clientes/hel/plano-hel-2.0.html" target="_blank" rel="noopener">Abrir plano <span>&rarr;</span></a></div>
+      </div>
+
+      <div class="doccard" style="--c:var(--cultura)">
+        <div class="dc-top"><h4>Proposta Comercial</h4><span class="filetag">PDF</span></div>
+        <p>Sumário executivo, desafio em três frentes, solução (núcleo + VitaMed + VitaCare), cronograma e modelo de investimento completo.</p>
+        <div class="dc-actions">
+          <a class="btn btn-sm btn-primary" href="clientes/hel/proposta-comercial-HEL.pdf" target="_blank" rel="noopener">Abrir PDF <span>&rarr;</span></a>
+          <a class="btn btn-sm btn-ghost" href="clientes/hel/proposta-comercial-HEL.docx">DOCX</a>
+        </div>
+      </div>
+
+      <div class="doccard" style="--c:var(--violet)">
+        <div class="dc-top"><h4>Anexos Técnicos</h4><span class="filetag">PDF</span></div>
+        <p>Anexo A — VitaMed (materiais, medicamentos &amp; OPME) e Anexo B — VitaCare (segurança do paciente &amp; desfechos), com drivers de valor e fluxos detalhados.</p>
+        <div class="dc-actions">
+          <a class="btn btn-sm btn-primary" href="clientes/hel/anexos-tecnicos-HEL.pdf" target="_blank" rel="noopener">Abrir PDF <span>&rarr;</span></a>
+          <a class="btn btn-sm btn-ghost" href="clientes/hel/anexos-tecnicos-HEL.docx">DOCX</a>
+        </div>
+      </div>
+
+      <div class="doccard" style="--c:var(--green)">
+        <div class="dc-top"><h4>Resumo Executivo</h4><span class="filetag">PDF</span></div>
+        <p>One-pager de investimento &amp; retorno — visão de diretoria em uma página: implantação, assinatura e potencial de benefício consolidado.</p>
+        <div class="dc-actions"><a class="btn btn-sm btn-primary" href="clientes/hel/onepager-investimento-HEL.pdf" target="_blank" rel="noopener">Abrir PDF <span>&rarr;</span></a></div>
+      </div>
+
+      <div class="doccard" style="--c:var(--red)">
+        <div class="dc-top"><h4>Contrato de Prestação de Serviços</h4><span class="filetag">PDF</span></div>
+        <p>Minuta-modelo: licenciamento da plataforma e consultoria, LGPD/DPA, segurança, IA responsável e anexos (SOW, SLA, DPA). Sujeita a revisão jurídica.</p>
+        <div class="dc-actions">
+          <a class="btn btn-sm btn-primary" href="clientes/hel/contrato-servico-nichvs.pdf" target="_blank" rel="noopener">Abrir PDF <span>&rarr;</span></a>
+          <a class="btn btn-sm btn-ghost" href="clientes/hel/contrato-servico-nichvs.docx">DOCX</a>
+        </div>
+      </div>
+
+      <div class="doccard" style="--c:var(--muted);opacity:.55">
+        <div class="dc-top"><h4>Próximos Documentos</h4><span class="filetag" style="border-color:var(--line);color:var(--muted)">EM BREVE</span></div>
+        <p>Relatórios de baseline (Fase 0), atas de workshop e artefatos de homologação aparecem aqui à medida que o projeto avança.</p>
+      </div>
+
+    </div>
+
+    <div class="client-callout">
+      <div class="ct">Leitura honesta dos números</div>
+      <p>O ROI de <b>3,66×</b> e o payback de <b>7 meses</b> pertencem ao núcleo operacional já modelado. VitaMed e VitaCare são extensões com benefício ilustrativo, detalhado nos Anexos A e B — só viram compromisso após o diagnóstico (Fase 0) validar as premissas com os números reais do Hospital. Este painel não constitui oferta vinculante, parecer jurídico nem aconselhamento financeiro.</p>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="nichvs-tech.html#top"><svg><use href="#logo"/></svg><span>NICHVS</span></a>
+      <div class="foot-links">
+        <a href="https://culturaflow.netlify.app" target="_blank" rel="noopener">CulturaFlow</a>
+        <a href="https://nichvs.studio" target="_blank" rel="noopener">NICHVS Studio</a>
+        <a href="cliente.html">Área do Cliente</a>
+        <a href="mailto:contato@nichvs.tech">Contato</a>
+      </div>
+    </div>
+    <div class="foot-meta">
+      <span>Nichvs Tecnologia ME · Florianópolis/SC</span>
+      <span class="mono">nichvs.tech · © <span id="yr"></span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){"use strict";
+  var yr=document.getElementById("yr");if(yr){yr.textContent=new Date().getFullYear();}
+  var head=document.getElementById("head");
+  function onScroll(){if(window.pageYOffset>40){head.classList.add("scrolled");}else{head.classList.remove("scrolled");}}
+  window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+  /* ---------- credenciais (hash SHA-256, client-side) ----------
+     Soft-gate: afasta acesso casual. NÃO é segurança de servidor —
+     os arquivos em clientes/hel/ continuam públicos por URL direta.
+     Upgrade real disponível em supabase-setup.sql / *-client-*.js. */
+  var CLIENTS={
+    "hel":{ name:"Hospital Evangélico de Londrina", hash:"f778e5557041b7f000f24eccc8d5f4ff6f13699242f1b9e510ac90b4142728fc" }
+  };
+  var SESSION_KEY="nichvs_client_session";
+
+  function toHex(buf){
+    var b=new Uint8Array(buf), s="";
+    for(var i=0;i<b.length;i++){ var h=b[i].toString(16); s+= h.length===1?"0"+h:h; }
+    return s;
+  }
+  function sha256(text){
+    var enc=new TextEncoder().encode(text);
+    return crypto.subtle.digest("SHA-256", enc).then(toHex);
+  }
+  function setMsg(state,text){
+    var el=document.getElementById("gateMsg");
+    el.className="gate-msg "+state;
+    document.getElementById("gateMsgText").textContent=text;
+  }
+  function showPanel(clientId){
+    var c=CLIENTS[clientId]; if(!c) return;
+    document.getElementById("gate-section").style.display="none";
+    document.getElementById("panel-section").style.display="block";
+    document.getElementById("sessClientName").textContent=c.name;
+    document.getElementById("panelClientName").textContent=c.name;
+  }
+  function authenticate(){
+    var clientId=document.getElementById("clientSelect").value;
+    var key=document.getElementById("passKey").value;
+    if(!key){ setMsg("err","Informe a chave de acesso."); return; }
+    setMsg("idle","Verificando credenciais…");
+    var c=CLIENTS[clientId];
+    sha256(key).then(function(digest){
+      if(c && digest===c.hash){
+        setMsg("ok","Acesso concedido.");
+        try{ sessionStorage.setItem(SESSION_KEY, clientId); }catch(e){}
+        setTimeout(function(){ showPanel(clientId); }, 250);
+      } else {
+        setMsg("err","Chave de acesso inválida.");
+      }
+    });
+  }
+  document.getElementById("gateSubmit").addEventListener("click",authenticate);
+  document.getElementById("passKey").addEventListener("keydown",function(e){ if(e.key==="Enter") authenticate(); });
+  document.getElementById("logoutBtn").addEventListener("click",function(){
+    try{ sessionStorage.removeItem(SESSION_KEY); }catch(e){}
+    document.getElementById("panel-section").style.display="none";
+    document.getElementById("gate-section").style.display="block";
+    document.getElementById("passKey").value="";
+    setMsg("idle","Aguardando credenciais.");
+  });
+
+  /* sessão persistida durante a aba (sessionStorage, não localStorage) */
+  try{
+    var active=sessionStorage.getItem(SESSION_KEY);
+    if(active && CLIENTS[active]) showPanel(active);
+  }catch(e){}
+
+  var sp=document.querySelectorAll(".spoiler");for(var q=0;q<sp.length;q++){sp[q].addEventListener("click",function(){this.classList.toggle("revealed");});}
+})();
+</script>
+</body>
+</html>
